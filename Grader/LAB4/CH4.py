@@ -16,43 +16,41 @@ class Queue:
 
     def size(self):
         return len(self.items)
+    
+    def isDep(self,dep):
+        for i in self.items:
+            if dep == i[0]:
+                return True
+        return False
+
+    def insertQ(self, value):
+        if self.isEmpty() or not self.isDep(value[0]):
+            self.enQuene(value)
+        else:
+            for i in range(self.size()-1, -1, -1):
+                if self.items[i][0] == value[0]:
+                    self.items.insert(i+1, value)
+                    return
+            self.enQuene(value)
 
 if __name__ == '__main__':
     inp1,inp2 = input("Enter Input : ").split('/')
-    inp1 = list(inp1.split(','))
-    inp2 = list(inp2.split(','))
+    inp1 = inp1.split(',')
 
-    q1 = Queue()
-    q2 = Queue()
-    q3 = Queue()
-
+    emp = dict()
     for i in inp1:
-        if '1 ' in i:
-            q1.enQuene(i[2:])
-        elif '2 ' in i:
-            q2.enQuene(i[2:])
-        elif '3 ' in i:
-            q3.enQuene(i[2:])
+        dep, idd = i.split()
+        emp[idd] = dep
 
-    qq1 = Queue()
-    qq2 = Queue()
-    qq3 = Queue()
+    inp2 = inp2.split(',')
+
+    q = Queue()
     
     for i in inp2:
         if 'E' in i:
-            if i[2:] in q1.items:
-                qq1.enQuene(i[2:])
-            elif i[2:] in q2.items:
-                qq2.enQuene(i[2:])
-            elif i[2:] in q3.items:
-                qq3.enQuene(i[2:])
+            q.insertQ((emp[i[2:]], i[2:]))
         elif 'D' in i:
-            if qq1.isEmpty() and qq2.isEmpty() and qq3.isEmpty():
-                print("Empty")
-            elif qq1.isEmpty() and qq2.isEmpty():
-                print(qq3.deQuene())
-            elif qq1.isEmpty():
-                print(qq2.deQuene())
+            if not q.isEmpty():
+                print(q.deQuene()[1])
             else:
-                print(qq1.deQuene())
-
+                print("Empty")

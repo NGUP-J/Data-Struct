@@ -16,16 +16,3 @@ class Queue:
 
     def size(self):
         return len(self.items)
-
-
-if __name__ == '__main__':
-    inp = input("Enter code,hint : ").split(',')
-
-    q = Queue()
-
-    num = ord(inp[1]) - ord(inp[0][0])
-
-    for i in inp[0]:
-        i = chr(ord(i) + num)
-        q.enQuene(i)
-        print(q.items)
