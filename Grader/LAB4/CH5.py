@@ -1,6 +1,3 @@
-import string
-
-
 class Queue:
     def __init__(self,list = None):
         if list == None:
