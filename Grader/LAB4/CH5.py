@@ -49,6 +49,16 @@ if __name__ == '__main__':
     nBomb = list(nBomb)
     mBomb = list(mBomb)
 
+    nStack = Stack()
+    mStack = Stack()
+
+    for i in nBomb:
+        nStack.push(i)
+    for i in mBomb:
+        mStack.push(i)
+
+    
+
     nItem = Queue()
     mItem = Queue()
 
