@@ -86,4 +86,3 @@ if __name__ == '__main__':
             ins = i.split(':')
             l.insert(int(ins[0].lstrip()), ins[1])
         l.printList()
-        # print("size :", l.size())

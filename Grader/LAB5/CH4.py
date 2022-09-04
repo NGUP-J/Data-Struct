@@ -40,57 +40,6 @@ class LinkedList:
             self.tail = node
             self._size += 1
 
-    def add_before(self, data):
-        if self.isEmpty():
-            self.head = self.tail = Node(data)
-            self._size += 1
-            return 0
-        else:
-            node = Node(data)
-            if self.size() == 1:
-                node.next = self.tail
-                self.tail.previous = node
-                self.head = node
-            else:
-                node.next = self.head
-                self.head.previous = node
-                self.head = node
-            self._size += 1
-
-    def insert(self, index, data):
-        if index > self._size or index < 0:
-            return print('Data cannot be added')
-
-        if self.isEmpty():
-            self.head = self.tail = Node(data)
-            self._size += 1
-            return print(f'index = {index} and data = {data}')
-        node = Node(data)
-
-        if index == 0:
-            self._size += 1
-            node.next = self.head
-            self.head.previous = node
-            self.head = node
-
-        if index == self._size:
-            self._size += 1
-            node.previous = self.tail
-            self.tail.next = node
-            self.tail = node
-        current, _index = self.head, 0
-
-        while _index != index - 1:
-            _index += 1
-            current = current.next
-        
-        current.next.previous = node
-        node.next = current.next
-        node.previous = current
-        current.next = node
-        self._size += 1
-        return print(f'index = {index} and data = {data}')
-
     def push_back(self, data):
         node = Node(data)
 
@@ -163,5 +112,5 @@ if __name__ == '__main__':
     if l.detectLoop():
         print('Found Loop')
     else:
-        print('No loop')
+        print('No Loop')
         print(l)
