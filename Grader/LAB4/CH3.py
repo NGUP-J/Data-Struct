@@ -20,7 +20,7 @@ class Queue:
 
 if __name__ == '__main__':
     inp = input("Enter code,hint : ").split(',')
-
+    # inp[0] = 'gjstu`uftu' inp[1] = 'f'
     q = Queue()
 
     num = ord(inp[1]) - ord(inp[0][0])

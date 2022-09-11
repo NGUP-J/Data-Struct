@@ -17,6 +17,9 @@ class Queue:
     def size(self):
         return len(self.items)
 
+    def peek(self):
+        return self.items[-1]
+
 if __name__ == '__main__':
     inp = input("Enter Input : ").split(',')
     q = Queue()

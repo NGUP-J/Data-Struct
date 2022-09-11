@@ -24,7 +24,8 @@ class Queue:
         return False
 
     def insertQ(self, value):
-        if self.isEmpty() or not self.isDep(value[0]):
+        # print(value[1])
+        if self.isEmpty() or not self.isDep(value):
             self.enQuene(value)
         else:
             for i in range(self.size()-1, -1, -1):

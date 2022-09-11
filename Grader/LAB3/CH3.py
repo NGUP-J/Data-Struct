@@ -33,7 +33,7 @@ def postFixeval(st):
             s.push(a)
             continue
 
-        op1, op2 = s.items.pop(), s.items.pop()
+        op1, op2 = s.pop(), s.pop()
 
         if a == '+':
             s.push(float(op2) + float(op1))

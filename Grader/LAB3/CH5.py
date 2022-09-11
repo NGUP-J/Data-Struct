@@ -33,7 +33,6 @@ if __name__ == '__main__':
 
     s = list(s.split(','))
     s1 = Stack()
-    s2 = Stack()
     if '0' in s:
         pass
     else:
